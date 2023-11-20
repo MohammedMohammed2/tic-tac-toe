@@ -3,11 +3,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GUI {
     boolean playerX;
     boolean PlayerO;
     private JButton [] buttons = new JButton[9];
+    boolean spelareX;
+    Random random = new Random();
     GUI(){
         JFrame frame = new JFrame();
         frame.setSize(500,500);
@@ -39,6 +42,16 @@ public class GUI {
         }
         Field.add(panel);
         return Field;
+    }
+
+    //om det blir 0 är det spelare X som börjar om det blir 1 är det spelare O.
+    //sen ska det läggas in text för X och O så det visas.
+    public void startSpelare (){
+        if (random.nextInt(2)==0){
+            spelareX=true;
+        } else {
+            spelareX=false;
+        }
     }
 public class EventListener implements ActionListener {
     @Override
