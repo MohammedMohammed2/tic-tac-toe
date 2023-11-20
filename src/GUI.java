@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GUI {
     private JButton [] buttons = new JButton[9];
@@ -32,5 +33,8 @@ public class GUI {
         }
         Field.add(panel);
         return Field;
+        hejhejhej
+
     }
+
 }
