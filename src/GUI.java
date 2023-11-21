@@ -58,7 +58,6 @@ class ButtonListener implements ActionListener {
         buttonClicked.setText(spelareX ? "X" : "O");
         buttonClicked.setEnabled(false);
 
-        checkGameStatus();
         spelareX = !spelareX;
     }
 }
