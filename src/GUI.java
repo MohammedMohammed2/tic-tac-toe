@@ -13,14 +13,9 @@ public class GUI {
         JFrame frame = new JFrame();
         frame.setSize(500,500);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        
-        frame.add(TopPanel());
-        frame.add(PlayingField());
+        frame.add(TopPanel(),BorderLayout.NORTH);
+        frame.add(PlayingField(),BorderLayout.CENTER);
         frame.setVisible(true);
-
-           startSpelare();
-
     }
 
     /*shows if X or O is taking turn and the winner*/
@@ -28,6 +23,12 @@ public class GUI {
         JPanel top = new JPanel();
         top.setPreferredSize(new Dimension(150,50));
         top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
+        top.setBackground(Color.blue);
+
+        JLabel TurnStarter = new JLabel("it is X's turn");
+        TurnStarter.setFont(new Font(("Times New Roman"), Font.PLAIN,20));
+        TurnStarter.setForeground(Color.orange);
+        top.add(TurnStarter);
 
         return top;
     }
@@ -56,10 +57,6 @@ public class GUI {
             spelareX=false;
         }
     }
-private void checkGameStatus() {
-
-    }
-    
 class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -67,9 +64,7 @@ class ButtonListener implements ActionListener {
         buttonClicked.setText(spelareX ? "X" : "O");
         buttonClicked.setEnabled(false);
 
-        checkGameStatus();
         spelareX = !spelareX;
     }
-}
 }
 }
