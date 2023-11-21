@@ -16,10 +16,12 @@ public class GUI {
         frame.setSize(500,500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         JPanel panel = new JPanel();
         frame.add(panel);
         panel.add(TopPanel());
         panel.add(PlayingField());
+
     }
 
     /*shows if X or O is taking turn and the winner*/
@@ -44,6 +46,8 @@ public class GUI {
         return Field;
     }
 
+test
+
     //om det blir 0 är det spelare X som börjar om det blir 1 är det spelare O.
     //sen ska det läggas in text för X och O så det visas.
     public void startSpelare (){
@@ -53,6 +57,7 @@ public class GUI {
             spelareX=false;
         }
     }
+
 public class EventListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
