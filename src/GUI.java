@@ -33,7 +33,7 @@ public class GUI {
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
 
-        statusLabel = new JLabel("Turn: " + (spelareX ? "X" : "O"));
+        statusLabel = new JLabel("Turn: " + (spelareX ? "O" : "X"));
         top.add(statusLabel);
 
         return top;
