@@ -145,6 +145,7 @@ class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
          JButton buttonClicked = (JButton) e.getSource();
+         //Om spelareX är true blir texten X annars O så det stämmer överens med Startspelare.
             if (spelareX){
                 buttonClicked.setText("X");
             } else {
