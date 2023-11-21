@@ -144,13 +144,18 @@ public class GUI {
 class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton buttonClicked = (JButton) e.getSource();
-        buttonClicked.setText(spelareX ? "X" : "O");
-        buttonClicked.setEnabled(false);
+         JButton buttonClicked = (JButton) e.getSource();
+            if (spelareX){
+                buttonClicked.setText("X");
+            } else {
+                buttonClicked.setText("O");
+            }
+            buttonClicked.setEnabled(false);
+
+            spelareX = !spelareX;
 
          spelStatus();
 
-        spelareX = !spelareX;
     }
 }
 }
