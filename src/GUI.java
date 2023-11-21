@@ -16,6 +16,7 @@ public class GUI {
         frame.add(TopPanel(),BorderLayout.NORTH);
         frame.add(PlayingField(),BorderLayout.CENTER);
         frame.setVisible(true);
+        startSpelare();
     }
 
     /*shows if X or O is taking turn and the winner*/
@@ -53,8 +54,10 @@ public class GUI {
     public void startSpelare (){
         if (random.nextBoolean()){
             spelareX=true;
+            TurnStarter.setText("SPELARE X");
         } else {
             spelareX=false;
+            TurnStarter.setText("SPELARE O");
         }
     }
 class ButtonListener implements ActionListener {
