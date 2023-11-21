@@ -10,6 +10,7 @@ public class GUI {
     boolean spelareX;
     Random random = new Random();
     private JLabel TurnStarter;
+     private JLabel statusLabel;
     GUI(){
         JFrame frame = new JFrame();
         frame.setSize(500,500);
@@ -31,6 +32,9 @@ public class GUI {
         TurnStarter.setFont(new Font(("Times New Roman"), Font.PLAIN,20));
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
+
+        statusLabel = new JLabel("Turn: " + (spelareX ? "X" : "O"));
+        top.add(statusLabel);
 
         return top;
     }
@@ -61,6 +65,82 @@ public class GUI {
             TurnStarter.setText("SPELARE O");
         }
     }
+    private void spelStatus() { // kollar spelets status, vinnare, förlorare eller oavgjort
+        for (int i = 0; i < 8; i++) {
+            String line = null;
+
+            switch (i) { //kollar varje vinnande rikning
+                case 0:
+                    // horisontell vinst
+                    line = buttons[0].getText() + buttons[1].getText() + buttons[2].getText();
+                    break;
+                case 1:
+                    line = buttons[3].getText() + buttons[4].getText() + buttons[5].getText();
+                    break;
+                case 2:
+                    line = buttons[6].getText() + buttons[7].getText() + buttons[8].getText();
+                    break;
+                // vertical vinst
+                case 3:
+                    line = buttons[0].getText() + buttons[3].getText() + buttons[6].getText();
+                    break;
+                case 4:
+                    line = buttons[1].getText() + buttons[4].getText() + buttons[7].getText();
+                    break;
+                case 5:
+                    line = buttons[2].getText() + buttons[5].getText() + buttons[8].getText();
+                    break;
+                    //diagonal vinst
+                case 6:
+                    line = buttons[0].getText() + buttons[4].getText() + buttons[8].getText();
+                    break;
+                case 7:
+                    line = buttons[2].getText() + buttons[4].getText() + buttons[6].getText();
+                    break;
+            }
+
+            // kollar vem vinnaren är och visar det
+            if (line.equals("XXX")) {
+                JOptionPane.showMessageDialog(null, "Spelare X vann!");
+                reset();
+                return;
+            } else if (line.equals("OOO")) {
+                JOptionPane.showMessageDialog(null, "Spelare O vann!");
+                reset();
+                return;
+            }
+        }
+        // kollar ifall det är oavgjort
+        if (fullt()) {
+            JOptionPane.showMessageDialog(null, "Spelet blev oavgjort!");
+            reset();
+            return;
+        }
+
+        // uppdaterar statuslabel för nästa spelares tur
+        statusLabel.setText("Turn: " + (!spelareX ? "X" : "O"));
+    }
+
+    // metod för att kolla ifall alla celler är fyllda
+    private boolean fullt() {
+        for (JButton button : buttons) {
+            if (button.getText().equals("")) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //metod för att resetta spelet
+    private void reset() {
+        for (JButton button : buttons) {
+            button.setText("");
+            button.setEnabled(true);
+        }
+        startSpelare();
+    }
+
+    
 class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
