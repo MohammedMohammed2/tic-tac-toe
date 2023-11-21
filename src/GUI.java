@@ -34,7 +34,7 @@ public class GUI {
         JPanel panel = new JPanel(new GridLayout(3, buttons.length,10,10));
         for(int i = 0; i<buttons.length;i++) {
             buttons[i] = new JButton();
-            buttons[i].addActionListener(new EventListener());
+           buttons[i].addActionListener(new ButtonListener());
             buttons[i].setActionCommand(i+"");
             panel.add(buttons[i]);
         }
@@ -51,45 +51,16 @@ public class GUI {
             spelareX=false;
         }
     }
-public class EventListener implements ActionListener {
+class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("0")) {
-            buttons[0].setText("x");
-            buttons[0].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("1")) {
-            buttons[1].setText("x");
-            buttons[1].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("2")) {
-            buttons[2].setText("x");
-            buttons[2].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("3")) {
-            buttons[3].setText("x");
-            buttons[3].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("4")) {
-            buttons[4].setText("O");
-            buttons[4].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("5")) {
-            buttons[5].setText("x");
-            buttons[5].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("6")) {
-            buttons[6].setText("O");
-            buttons[6].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("7")) {
-            buttons[7].setText("O");
-            buttons[7].setEnabled(false);
-        }
-        if (e.getActionCommand().equals("8")) {
-            buttons[8].setText("O");
-            buttons[8].setEnabled(false);
-        }
+        JButton buttonClicked = (JButton) e.getSource();
+        buttonClicked.setText(spelareX ? "X" : "O");
+        buttonClicked.setEnabled(false);
+
+        checkGameStatus();
+        spelareX = !spelareX;
     }
+}
 }
 }
