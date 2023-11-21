@@ -27,7 +27,7 @@ public class GUI {
         top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
         top.setBackground(Color.blue);
 
-        TurnStarter = new JLabel("it is X's turn");
+        TurnStarter = new JLabel();
         TurnStarter.setFont(new Font(("Times New Roman"), Font.PLAIN,20));
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
