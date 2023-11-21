@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GUI {
-    boolean playerX;
-    boolean PlayerO;
     private JButton [] buttons = new JButton[9];
     boolean spelareX;
     Random random = new Random();
