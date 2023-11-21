@@ -47,12 +47,10 @@ public class GUI {
         return Field;
     }
 
-test
-
     //om det blir 0 är det spelare X som börjar om det blir 1 är det spelare O.
     //sen ska det läggas in text för X och O så det visas.
     public void startSpelare (){
-        if (random.nextInt(2)==0){
+        if (random.nextBoolean()){
             spelareX=true;
         } else {
             spelareX=false;
