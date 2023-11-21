@@ -148,6 +148,8 @@ class ButtonListener implements ActionListener {
         buttonClicked.setText(spelareX ? "X" : "O");
         buttonClicked.setEnabled(false);
 
+         spelStatus();
+
         spelareX = !spelareX;
     }
 }
