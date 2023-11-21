@@ -118,7 +118,7 @@ public class GUI {
         }
 
         // uppdaterar statuslabel för nästa spelares tur
-        statusLabel.setText("Turn: " + (!spelareX ? "X" : "O"));
+        statusLabel.setText("Turn: " + (!spelareX ? "O" : "X"));
     }
 
     // metod för att kolla ifall alla celler är fyllda
