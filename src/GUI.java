@@ -12,17 +12,17 @@ public class GUI {
     GUI(){
         JFrame frame = new JFrame();
         frame.setSize(500,500);
-        frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        JPanel panel = new JPanel();
-        frame.add(panel);
-        panel.add(TopPanel());
-        panel.add(PlayingField());
+        frame.add(TopPanel());
+        frame.add(PlayingField());
+        frame.setVisible(true);
     }
 
     /*shows if X or O is taking turn and the winner*/
     private JPanel TopPanel() {
         JPanel top = new JPanel();
+        top.setPreferredSize(new Dimension(150,50));
+        top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
 
         return top;
     }
