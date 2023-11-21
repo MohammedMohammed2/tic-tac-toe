@@ -9,6 +9,7 @@ public class GUI {
     private JButton [] buttons = new JButton[9];
     boolean spelareX;
     Random random = new Random();
+    private JLabel TurnStarter;
     GUI(){
         JFrame frame = new JFrame();
         frame.setSize(500,500);
@@ -26,7 +27,7 @@ public class GUI {
         top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
         top.setBackground(Color.blue);
 
-        JLabel TurnStarter = new JLabel("it is X's turn");
+        TurnStarter = new JLabel("it is X's turn");
         TurnStarter.setFont(new Font(("Times New Roman"), Font.PLAIN,20));
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
