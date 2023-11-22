@@ -9,8 +9,11 @@ public class GUI {
     private JButton [] buttons = new JButton[9];
     boolean spelareX;
     Random random = new Random();
-    private JLabel TurnStarter;
-     private JLabel statusLabel;
+    private JLabel TurnStarter, scoreX, scoreO;
+    int x;
+    int o;
+
+
     GUI(){
         JFrame frame = new JFrame();
         frame.setSize(500,500);
@@ -33,8 +36,16 @@ public class GUI {
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
 
-        statusLabel = new JLabel("Turn: " + (spelareX ? "O" : "X"));
-        top.add(statusLabel);
+        scoreX = new JLabel();
+        scoreX.setFont(new Font(("Times New Roman"), Font.PLAIN,15));
+
+        scoreX.setForeground(Color.orange);
+        scoreO = new JLabel();
+        scoreO.setFont(new Font(("Times New Roman"), Font.PLAIN,15));
+        scoreO.setForeground(Color.orange);
+
+        top.add(scoreX);
+        top.add(scoreO);
 
         return top;
     }
@@ -46,7 +57,7 @@ public class GUI {
         JPanel panel = new JPanel(new GridLayout(3, buttons.length,10,10));
         for(int i = 0; i<buttons.length;i++) {
             buttons[i] = new JButton();
-           buttons[i].addActionListener(new ButtonListener());
+            buttons[i].addActionListener(new ButtonListener());
             buttons[i].setActionCommand(i+"");
             panel.add(buttons[i]);
         }
@@ -102,10 +113,14 @@ public class GUI {
             // kollar vem vinnaren är och visar det
             if (line.equals("XXX")) {
                 JOptionPane.showMessageDialog(null, "Spelare X vann!");
+                x++;
+                scoreX.setText("Spelare X| " + x);
                 reset();
                 return;
             } else if (line.equals("OOO")) {
                 JOptionPane.showMessageDialog(null, "Spelare O vann!");
+                o++;
+                scoreO.setText("Spelare O|  " + o);
                 reset();
                 return;
             }
@@ -116,9 +131,6 @@ public class GUI {
             reset();
             return;
         }
-
-        // uppdaterar statuslabel för nästa spelares tur
-        statusLabel.setText("Turn: " + (!spelareX ? "O" : "X"));
     }
 
     // metod för att kolla ifall alla celler är fyllda
