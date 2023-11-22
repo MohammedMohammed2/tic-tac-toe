@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class GUI {
     private JButton [] buttons = new JButton[9];
+    private JPanel bot;
     boolean spelareX;
     Random random = new Random();
     private JLabel TurnStarter, scoreX, scoreO;
@@ -20,6 +21,7 @@ public class GUI {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(TopPanel(),BorderLayout.NORTH);
         frame.add(PlayingField(),BorderLayout.CENTER);
+        frame.add(bot, BorderLayout.SOUTH);
         frame.setVisible(true);
         startSpelare();
     }
@@ -31,23 +33,32 @@ public class GUI {
         top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
         top.setBackground(Color.blue);
 
+        bot = new JPanel();
+        bot.setPreferredSize(new Dimension(150,50));
+        bot.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
+        bot.setBackground(Color.blue);
+
+
         TurnStarter = new JLabel();
         TurnStarter.setFont(new Font(("Times New Roman"), Font.PLAIN,20));
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
 
         scoreX = new JLabel();
-        scoreX.setFont(new Font(("Times New Roman"), Font.PLAIN,15));
-
+        scoreX.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
         scoreX.setForeground(Color.orange);
-        scoreO = new JLabel();
-        scoreO.setFont(new Font(("Times New Roman"), Font.PLAIN,15));
-        scoreO.setForeground(Color.orange);
+        scoreX.setText("Spelare X    || ");
 
-        top.add(scoreX);
-        top.add(scoreO);
+        scoreO = new JLabel();
+        scoreO.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
+        scoreO.setForeground(Color.orange);
+        scoreO.setText("   Spelare O ");
+
+        bot.add(scoreX);
+        bot.add(scoreO);
 
         return top;
+
     }
 
     private JPanel PlayingField(){
@@ -114,13 +125,13 @@ public class GUI {
             if (line.equals("XXX")) {
                 JOptionPane.showMessageDialog(null, "Spelare X vann!");
                 x++;
-                scoreX.setText("Spelare X| " + x);
+                scoreX.setText("Spelare X  " + x + "   || ");
                 reset();
                 return;
             } else if (line.equals("OOO")) {
                 JOptionPane.showMessageDialog(null, "Spelare O vann!");
                 o++;
-                scoreO.setText("Spelare O|  " + o);
+                scoreO.setText("     Spelare O  " + o);
                 reset();
                 return;
             }
