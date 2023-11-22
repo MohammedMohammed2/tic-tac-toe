@@ -36,8 +36,8 @@ public class GUI {
         //Panel som ska in i south med samma design som top.
         bot = new JPanel();
         bot.setPreferredSize(new Dimension(150,50));
-        bot.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
-        bot.setBackground(Color.blue);
+        bot.setBorder(BorderFactory.createLineBorder(Color.darkGray,10));
+        bot.setBackground(Color.darkGray);
 
 
         TurnStarter = new JLabel();
@@ -48,13 +48,13 @@ public class GUI {
         //label för resultat X
         scoreX = new JLabel();
         scoreX.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
-        scoreX.setForeground(Color.orange);
+        scoreX.setForeground(Color.blue);
         scoreX.setText("Spelare X:  0 ");
 
         //label för resultat O
         scoreO = new JLabel();
         scoreO.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
-        scoreO.setForeground(Color.orange);
+        scoreO.setForeground(Color.red);
         scoreO.setText("       Spelare O: 0");
 
         bot.add(scoreX);
