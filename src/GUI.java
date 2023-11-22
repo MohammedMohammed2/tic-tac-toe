@@ -33,6 +33,7 @@ public class GUI {
         top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
         top.setBackground(Color.blue);
 
+        //Panel som ska in i south med samma design som top.
         bot = new JPanel();
         bot.setPreferredSize(new Dimension(150,50));
         bot.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
@@ -44,11 +45,13 @@ public class GUI {
         TurnStarter.setForeground(Color.orange);
         top.add(TurnStarter);
 
+        //label för resultat X
         scoreX = new JLabel();
         scoreX.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
         scoreX.setForeground(Color.orange);
         scoreX.setText("Spelare X:  0 ");
 
+        //label för resultat O
         scoreO = new JLabel();
         scoreO.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
         scoreO.setForeground(Color.orange);
@@ -76,8 +79,7 @@ public class GUI {
         return Field;
     }
 
-    //om det blir 0 är det spelare X som börjar om det blir 1 är det spelare O.
-    //sen ska det läggas in text för X och O så det visas.
+    //om det blir true är det spelare X som börjar om det blir false är det spelare O.
     public void startSpelare (){
         if (random.nextBoolean()){
             spelareX=true;
@@ -124,12 +126,14 @@ public class GUI {
             // kollar vem vinnaren är och visar det
             if (line.equals("XXX")) {
                 JOptionPane.showMessageDialog(null, "Spelare X vann!");
+                //uppdaterar counter och ändrar text i label.
                 x++;
                 scoreX.setText("Spelare X:  " + x);
                 reset();
                 return;
             } else if (line.equals("OOO")) {
                 JOptionPane.showMessageDialog(null, "Spelare O vann!");
+                //uppdaterar counter och ändrar text i label.
                 o++;
                 scoreO.setText("       Spelare O:  " + o);
                 reset();
