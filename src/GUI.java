@@ -47,12 +47,12 @@ public class GUI {
         scoreX = new JLabel();
         scoreX.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
         scoreX.setForeground(Color.orange);
-        scoreX.setText("Spelare X    || ");
+        scoreX.setText("Spelare X:  0 ");
 
         scoreO = new JLabel();
         scoreO.setFont(new Font(("Times New Roman"), Font.PLAIN,25));
         scoreO.setForeground(Color.orange);
-        scoreO.setText("   Spelare O ");
+        scoreO.setText("       Spelare O: 0");
 
         bot.add(scoreX);
         bot.add(scoreO);
@@ -81,10 +81,10 @@ public class GUI {
     public void startSpelare (){
         if (random.nextBoolean()){
             spelareX=true;
-            TurnStarter.setText("SPELARE X");
+            TurnStarter.setText("SPELARE X BÖRJAR");
         } else {
             spelareX=false;
-            TurnStarter.setText("SPELARE O");
+            TurnStarter.setText("SPELARE O BÖRJAR");
         }
     }
     private void spelStatus() { // kollar spelets status, vinnare, förlorare eller oavgjort
@@ -125,13 +125,13 @@ public class GUI {
             if (line.equals("XXX")) {
                 JOptionPane.showMessageDialog(null, "Spelare X vann!");
                 x++;
-                scoreX.setText("Spelare X  " + x + "   || ");
+                scoreX.setText("Spelare X:  " + x);
                 reset();
                 return;
             } else if (line.equals("OOO")) {
                 JOptionPane.showMessageDialog(null, "Spelare O vann!");
                 o++;
-                scoreO.setText("     Spelare O  " + o);
+                scoreO.setText("       Spelare O:  " + o);
                 reset();
                 return;
             }
