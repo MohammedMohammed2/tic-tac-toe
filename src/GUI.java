@@ -68,7 +68,7 @@ public class GUI {
         JPanel Field = new JPanel(new BorderLayout(10,10));
         Field.setBorder(BorderFactory.createLineBorder(Color.black,2));
         Field.setPreferredSize(new Dimension(400,400));
-        JPanel panel = new JPanel(new GridLayout(3, buttons.length,10,10));
+        JPanel panel = new JPanel(new GridLayout(3, buttons.length,0,0));
         for(int i = 0; i<buttons.length;i++) {
             buttons[i] = new JButton();
             buttons[i].addActionListener(new ButtonListener());
