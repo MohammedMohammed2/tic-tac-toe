@@ -72,6 +72,8 @@ public class GUI {
         for(int i = 0; i<buttons.length;i++) {
             buttons[i] = new JButton();
             buttons[i].addActionListener(new ButtonListener());
+            buttons[i].setBackground(Color.cyan);
+            buttons[i].setFont(new Font(("Times New Roman"), Font.PLAIN,100));
             buttons[i].setActionCommand(i+"");
             panel.add(buttons[i]);
         }
