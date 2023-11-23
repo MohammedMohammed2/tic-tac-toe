@@ -146,12 +146,11 @@ public class GUI {
         if (fullt()) {
             JOptionPane.showMessageDialog(null, "Spelet blev oavgjort!");
             reset();
-            return;
         }
     }
 
     // metod för att kolla ifall alla celler är fyllda
-    private boolean fullt() {
+        private boolean fullt() {
         for (JButton button : buttons) {
             if (button.getText().equals("")) {
                 return false;
@@ -159,6 +158,8 @@ public class GUI {
         }
         return true;
     }
+
+
 
     //metod för att resetta spelet
     private void reset() {
@@ -180,9 +181,11 @@ class ButtonListener implements ActionListener {
             } else {
                 buttonClicked.setText("O");
             }
+            //så man inte kan ändra efter man klickat på knapp
             buttonClicked.setEnabled(false);
 
-            spelareX = !spelareX;
+            //så det skiftar spelare.
+           spelareX =! spelareX;
 
          spelStatus();
 
