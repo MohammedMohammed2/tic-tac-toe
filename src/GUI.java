@@ -16,7 +16,7 @@ public class GUI {
 
 
     GUI(){
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Tic tac toe");
         frame.setSize(500,500);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(TopPanel(),BorderLayout.NORTH);
@@ -30,8 +30,8 @@ public class GUI {
     private JPanel TopPanel() {
         JPanel top = new JPanel();
         top.setPreferredSize(new Dimension(150,50));
-        top.setBorder(BorderFactory.createLineBorder(Color.BLUE,10));
-        top.setBackground(Color.blue);
+        top.setBorder(BorderFactory.createLineBorder(Color.darkGray,10));
+        top.setBackground(Color.darkGray);
 
         //Panel som ska in i south med samma design som top.
         bot = new JPanel();
